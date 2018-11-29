@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 数据库配置文件 -->
+    <properties resource="db.properties" />
+    <!--指定特定数据库的jdbc驱动jar包的位置 -->
+    <classPathEntry location="${driverLocation}"/>
+    <context id="context1">
+        <!-- <property name="javaFileEncoding" value="UTF-8" />
+        <property name="autoDelimitKeywords" value="true" />
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+         -->
+        <!-- 注释生成规则 -->
+        <commentGenerator type="org.mybatis.generator.internal.DefaultCommentGenerator">
+            <property name="suppressAllComments" value="true" />
+            <property name="addRemarkComments" value="false" />
+        </commentGenerator>
+        
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="${driver}" connectionURL="${url}" userId="${user}" password="${password}" />
+
+        <!-- 数据库的生成配置 -->
+        <javaModelGenerator targetPackage="com.mybatis.bean" targetProject="src/main/java" />
+        <sqlMapGenerator targetPackage="com.mybatis.mapper" targetProject="src/main/java" />
+        <javaClientGenerator targetPackage="com.mybatis.dao" targetProject="src/main/java" type="XMLMAPPER" />
+        
+        <!-- 以上部分配置固定，无需改动，此处往下开始项目设置 -->
+        <table tableName="Admin" domainObjectName="Admin"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+       <table tableName="Model" domainObjectName="Model"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        
+        <!--  <table tableName="Menu" domainObjectName="HiveLocation"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+       
+       <table tableName="RoleMenu" domainObjectName="HiveLocation"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table> -->
+    </context>
+</generatorConfiguration>
